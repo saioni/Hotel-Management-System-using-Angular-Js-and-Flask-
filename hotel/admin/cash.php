@@ -138,7 +138,7 @@ $(document).ready(function(){
 <div class="container">
 
              
-  <table class="table table-striped">
+  <table class="table table-striped table-hover">
     
 	<tbody>
 <?php
@@ -204,7 +204,7 @@ $(document).ready(function(){
 
     </tbody>
   </table>
- <button onclick=homepage()>Home Page</button>
+ <button onclick=homepage() class="btn btn-dark">Home Page</button>
 </div>
 
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

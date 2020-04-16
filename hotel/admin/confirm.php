@@ -12,8 +12,11 @@ if(isset($_POST['submit']))
 	//$cin=strtotime($cin);
 	//$newformat1 = date('Y-m-d',$cin);
 	//$cout=strtotime($cout);
-	//$newformat2 = date('Y-m-d',$cout);
-	$dif1=$cout-$cin;
+    //$newformat2 = date('Y-m-d',$cout);
+    $date1 = date_create($cout);
+    $date2 = date_create($cin);
+    $diff=date_diff($date1,$date2);
+    $dif1 = $diff->format("%a");
 	
 	$reser="INSERT INTO reservation(gst_id,checkin_date,checkout_date,period_stay,room_number,category) VALUES ($gid,'$cin','$cout',$dif1,$rno,'$cat')";
 	$confirm=mysqli_query($con,$reser);
@@ -35,7 +38,7 @@ if(isset($_POST['submit']))
         <!-- Bootstrap core CSS -->
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="https://getbootstrap.com/docs/4.4/dist/css/bootstrap.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
@@ -168,6 +171,10 @@ $(document).ready(function(){
 	?>
 </div>
 	
-
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com//docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="dashboard.js"></script>
 </body>	
 </html>
